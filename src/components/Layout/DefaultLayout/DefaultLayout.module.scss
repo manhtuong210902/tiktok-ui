@@ -1,0 +1,19 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    width: var(--width-content);
+    min-height: 1000px;
+    background-color: #333;
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    background-color: #666;
+    min-height: 1000px;
+}
