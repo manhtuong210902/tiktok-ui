@@ -1,4 +1,9 @@
 .wrapper {
+    --search-height: 46px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: var(--header-height);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
@@ -9,8 +14,55 @@
 .inner {
     height: 100%;
     width: var(--width-content);
+    padding: 0 var(--horizontal-spacer);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #999;
+    background-color: #fff;
+}
+
+//action
+.action {
+    display: flex;
+    align-items: center;
+}
+
+.more-btn {
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 1.8rem;
+    margin-left: 16px;
+    padding: 4px 0;
+}
+
+.action-btn {
+    position: relative;
+    background-color: transparent;
+    padding: 3px 3px 0;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.badge {
+    position: absolute;
+    top: -3px;
+    right: -7px;
+    padding: 0px 6px;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'ProximaNova', sans-serif;
+    background-color: var(--primary);
+}
+
+.user-avatar {
+    margin-left: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
 }
