@@ -22,12 +22,19 @@
 }
 
 .menu-popper {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 8px;
+}
+
+.list-items {
+    overflow-y: auto;
 }
 
 .header {
     position: relative;
     height: 50px;
+    flex-shrink: 0;
     margin-top: -8px;
 }
 
@@ -44,5 +51,5 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 600;
 }

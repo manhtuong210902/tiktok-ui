@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange }) {
+function Menu({ children, items = [], hideOnClick = false, onChange }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -22,7 +22,9 @@ function Menu({ children, items = [], onChange }) {
                     data={item}
                     onClick={() => {
                         if (isParent) {
-                            setHistory((prev) => [...prev, item.children]);
+                            setHistory((prev) => {
+                                return [...prev, item.children];
+                            });
                         } else {
                             onChange(item);
                         }
@@ -39,12 +41,13 @@ function Menu({ children, items = [], onChange }) {
             placement="bottom-end"
             offset={[10, 8]}
             delay={[0, 500]}
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
                         {history.length > 1 && (
                             <Header
-                                title="language"
+                                title="Language"
                                 onBack={() => {
                                     setHistory((prev) => {
                                         return prev.slice(0, prev.length - 1);
@@ -52,7 +55,7 @@ function Menu({ children, items = [], onChange }) {
                                 }}
                             />
                         )}
-                        {renderItem()}
+                        <div className={cx('list-items')}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}

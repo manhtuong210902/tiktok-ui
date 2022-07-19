@@ -2,6 +2,10 @@ import styles from './Header.module.scss';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import images from '~/assets/image';
+import Search from '../Search';
+import Image from '~/components/Image';
+import { ChatBoxIcon, PaperPlaneIcon } from '~/components/Icons';
+import routesConfig from '~/config/router';
 //
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -19,9 +23,7 @@ import 'tippy.js/dist/tippy.css';
 import classNames from 'classnames/bind';
 // import { faPaperPlane, faMessage } from '@fortawesome/free-regular-svg-icons';
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
-import { ChatBoxIcon, PaperPlaneIcon } from '~/components/Icons';
-import Image from '~/components/Image';
-import Search from '../Search';
+import { Link } from 'react-router-dom';
 
 //cái này cho mục đích sử tên class có thể chứa dấu gạch ngang -
 const cx = classNames.bind(styles);
@@ -67,7 +69,7 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
-            to: '/@ManhTuong',
+            to: routesConfig.profile,
         },
         {
             icon: <FontAwesomeIcon icon={faBitcoin} />,
@@ -91,14 +93,14 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link className={cx('logo')} to={routesConfig.home}>
                     <img src={images.logo} alt="tiktok" />
-                </div>
+                </Link>
 
                 <Search />
 
                 <div className={cx('action')}>
-                    <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                    <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />} to={routesConfig.upload}>
                         Upload
                     </Button>
                     {currentUser ? (

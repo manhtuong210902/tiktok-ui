@@ -13,8 +13,9 @@
         color: #444;
         caret-color: var(--primary);
         padding-right: 32px;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         background-color: transparent;
+        font-family: var(--font-family);
         &:not(:placeholder-shown) ~ .search-btn {
             color: rgba(22, 24, 35, 0.75);
         }
@@ -50,6 +51,19 @@
     color: rgba(22, 24, 35, 0.34);
     font-size: 1.6rem;
     cursor: pointer;
+}
+
+.loading {
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translate(-10px, -50%) rotate(0);
+    }
+    to {
+        transform: translate(-10px, -50%) rotate(360deg);
+    }
 }
 
 .search-btn {
